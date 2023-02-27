@@ -1,0 +1,21 @@
+<div class="container">
+    <h4> Login form </h4>
+    <form [formGroup]="loginform">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control"
+                [class.is-invalid]="fn['username'].invalid  && fn['username'].touched" formControlName="username"
+                id="exampleInputEmail1" >
+            <div class="alert alert-danger" *ngIf="fn['username'].invalid  && fn['username'].touched">
+                <div *ngIf="fn['username'].errors && fn['username'].errors['required']">
+                    "Enter a valid username"
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
